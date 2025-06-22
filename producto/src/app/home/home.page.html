@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">
+      <ion-icon name="pricetags-outline" slot="start"></ion-icon>
+      Buscador de Productos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-card class="buscador-card">
+    <ion-card-header>
+      <ion-card-title class="ion-text-center">🔍 Buscar productos económicos</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <form (submit)="buscarProducto()">
+        <ion-item>
+          <ion-label position="floating">Nombre del producto</ion-label>
+          <ion-input [(ngModel)]="producto" name="producto" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Especificaciones</ion-label>
+          <ion-textarea [(ngModel)]="especificaciones" name="especificaciones"></ion-textarea>
+        </ion-item>
+
+        <ion-button expand="block" type="submit" class="search-btn" shape="round">
+          <ion-icon slot="start" name="search-outline"></ion-icon>
+          Buscar
+        </ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-spinner *ngIf="cargando" class="spinner-center"></ion-spinner>
+
+  <div *ngIf="busquedaRealizada && resultados.length > 0" class="resultados">
+    <ion-card *ngFor="let item of resultados" class="resultado-item">
+      <ion-card-header>
+        <ion-card-title>{{ item.titulo }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>💰 <strong>Precio:</strong> {{ item.precio }}</p>
+        <ion-button size="small" fill="outline" href="{{ item.url }}" target="_blank" color="tertiary">
+          Ver producto
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <div *ngIf="busquedaRealizada && resultados.length === 0 && !cargando" class="no-resultados">
+    <ion-icon name="search-outline" style="font-size: 48px; color: #ccc;"></ion-icon>
+    <p>No se encontraron productos con los criterios ingresados.</p>
+  </div>
+
+</ion-content>
