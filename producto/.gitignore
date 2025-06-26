@@ -19,6 +19,72 @@ log.txt
 
 # Ionic
 /.ionic
+/platformstforms
+/plugins
+
+# Compiled output# Compiled output
+/dist
+/tmp
+/out-tsc-tsc
+/bazel-outut
+
+# Node# Node
+/node_modulesmodules
+npm-debug.log
+yarn-error.logg
+
+# IDEs and editors# IDEs and editors
+.idea/
+.projectct
+.classpathth
+.c9/
+*.launchunch
+.settings/s/
+*.sublime-projectproject
+*.sublime-workspacece
+
+# Visual Studio Code# Visual Studio Code
+.vscode/*
+!.vscode/settings.jsonsettings.json
+!.vscode/tasks.json
+!.vscode/launch.jsonn
+!.vscode/extensions.jsonjson
+.history/*
+
+
+# Miscellaneous# Miscellaneous
+/.angular
+/.angular/cache/cache
+.sass-cache/
+/.nx
+/.nx/cache/cache
+/connect.lockock
+/coverage
+/libpeerconnection.logonnection.log
+testem.log
+/typings
+
+# System files# System files
+.DS_Store
+Thumbs.db# Specifies intentionally untracked files to ignore when using Git
+*~
+*.sw[mnpcod]
+.tmp
+*.tmp
+*.tmp.*
+UserInterfaceState.xcuserstate
+$RECYCLE.BIN/
+
+*.log
+log.txt
+
+
+/.sourcemaps
+/.versions
+/coverage
+
+# Ionic
+/.ionic
 /www
 /platforms
 /plugins

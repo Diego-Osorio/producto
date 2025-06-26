@@ -13,11 +13,13 @@ export interface Producto {
 })
 export class ProductosService {
 
-  private baseUrl = 'http://127.0.0.1:5000'; // URL de tu backend Flask
+  // ✅ Usamos variable de entorno con fallback local
+  private baseUrl = (import.meta as any).env?.VITE_API_URL || 'http://127.0.0.1:5000';
 
   constructor(private http: HttpClient) { }
 
   buscarProductos(query: string): Observable<Producto[]> {
-    return this.http.get<Producto[]>(`${this.baseUrl}/buscar?q=${encodeURIComponent(query)}`);
+    return this.http.get<Producto[]>(`/api/buscar?q=${encodeURIComponent(query)}`);
   }
+  
 }
